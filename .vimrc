@@ -4,21 +4,19 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 set nu
 set encoding=utf-8
-" alternatively, pass a path where Vundle should install plugins
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
-"call vundle#begin('~/some/path/here')
 " set color background qlcs"
 set background=dark
 hi Comment ctermfg=2
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -65,4 +63,7 @@ vnoremap <silent> <C-D <C-C>:qa!<CR>
 inoremap <silent> <C-D>	<C-O>:quit<CR>
 inoremap <silent> <C-D <C-O>:qa!<CR>
 
+" indentation of code blocks
 
+vnoremap <tab> >gv
+vnoremap <S-tab> <gv
