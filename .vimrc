@@ -1,27 +1,7 @@
 set nocompatible              " required
 filetype off                  " required
-" set mouse to behave normally
-set mouse=a
-" fix backspac eon some consolles. here it behaves normally
-"" set bs=2 
-
-"  quick save with crtl+s from comand visual and insert mode
-" requires to add stty -ixon command in .bashrc
-noremap <silent> <C-S>	:update<CR>
-vnoremap <silent> <C-S>	<C-C>:update<CR>
-inoremap <silent> <C-S>	<C-O>:update<CR>
-
-" quick quit with ctrl+d from command visual and insert mode
-noremap <silent> <C-D> :quit<CR>	" quit current window
-noremap <silent> <C-D :qa!<CR>   " quit all windows
-vnoremap <silent> <C-D>	<C-C>:quit<CR>
-vnoremap <silent> <C-D <C-C>:qa!<CR> 
-inoremap <silent> <C-D>	<C-O>:quit<CR>
-inoremap <silent> <C-D <C-O>:qa!<CR>
-
 
 " set the runtime path to include Vundle and initialize
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -66,5 +46,23 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
+" set mouse to behave normally
+set mouse=a
+" fix backspac eon some consolles. here it behaves normally
+"" set bs=2 
+
+"  quick save with crtl+s from comand visual and insert mode
+" requires to add stty -ixon command in .bashrc
+noremap <silent> <C-S>	:update<CR>
+vnoremap <silent> <C-S>	<C-C>:update<CR>
+inoremap <silent> <C-S>	<C-O>:update<CR>
+
+" quick quit with ctrl+d from command visual and insert mode
+noremap <silent> <C-D> :quit<CR>	" quit current window
+noremap <silent> <C-D :qa!<CR>   " quit all windows
+vnoremap <silent> <C-D>	<C-C>:quit<CR>
+vnoremap <silent> <C-D <C-C>:qa!<CR> 
+inoremap <silent> <C-D>	<C-O>:quit<CR>
+inoremap <silent> <C-D <C-O>:qa!<CR>
 
 
