@@ -1,3 +1,6 @@
+" automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
 set nocompatible              " required
 filetype off                  " required
 
@@ -43,7 +46,6 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
 " set mouse to behave normally
 set mouse=a
 " fix backspac eon some consolles. here it behaves normally
@@ -64,6 +66,8 @@ inoremap <silent> <C-D>	<C-O>:quit<CR>
 inoremap <silent> <C-D <C-O>:qa!<CR>
 
 " indentation of code blocks
-
 vnoremap <tab> >gv
 vnoremap <S-tab> <gv
+
+" show line number
+set number
