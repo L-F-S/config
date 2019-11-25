@@ -1,0 +1,509 @@
+# COSE BASE
+#copiare file1 in directory2 chimanadolo file2
+cp dir/file1 dir2/file2
+#copiare una directory iìe tutti i suoi contenuti:
+cp -R dir /otherpath/ultimacartellasuperiore/
+cp -r pure
+#remove a directory and all tis files
+rm -r mydir  (o rm -rf se vuoi rimuovere tt automaticamente)
+#spostare
+mv
+# concatenare files
+cat file1 file2 > nuovofiles
+#absolute path: col / davanti . relative path: senz ail / davanti
+# rename parts of a filename
+in una cartella di tanti file fatti così:aps_123.pdb, aps_124.pdb... e vuoi chiamarli: aps_start_123.pdb, aps_start_124.pdb: fai così: occhio agli spazi:
+rename aps_ aps_start_ *.pdb
+
+#system informations
+lscpu
+lsmem
+
+#VARIABILI, CHIAMRE PROGRAMMI, COSE
+echo $PATH
+vim (subl) .bashrc
+### per aggiungere variabili d'ambiente (circa (refer to stackoverflow))
+alias NOMEVARIABILIE=/pathcompletoallavariabile  
+
+#check version
+lsb_release  -a
+
+# restart network
+sudo systemctl restart network-manager
+^ prova qst qnd ti si fotte la vpn
+sudo service network-manager restart  
+^ prova prima questa
+
+# for loop for cycle
+for i in {1..10};do
+asdasdads
+done
+
+#check number of lines in file
+wc -l nomefile
+
+#come trovare indirizzo mec su ubuntu
+ifconfig | grep HWaddr
+
+#open terminal in current folder: (fn) f4
+
+# give autorizzazioni complete a tutti alla cartella (forse non dovresti farlo):
+sudo chmod -R 777 /path
+
+#da python2 a python3: in command line: per vedere le modifiche
+2to3 example.py
+#per modificare il file
+2to3 -w example.py
+
+
+
+#installing packages
+
+sudo apt-get update   #fallo sempre prima di installare any application or program
+sudo apt-get install <packagename>   (if you know whatyou are doing, add -y, it will automatically say yes)
+come trovo i programmi dopo che li ho installati così?
+
+#capire quali versioni è possiblile installare di un programma
+apt-cache showpkg gcc   (forse, a volte)
+
+#check if something is installed:
+ldconfig -p | grep programma
+
+
+se no, per altre cose, tipo la patch di R, 
+cose in c++:
+./configure
+make
+make install
+quando ti incasini, fai make clean e ricomincia
+
+se no, se sono .deb : cliccacicsopra
+
+#managing packages
+
+sudo apt-get upgrade  (che fa?)
+sudo apt-get remove <package>
+sudo apt-get purge <package>  to 'completely remove' an applciation  (u can use -y) (use purge instead of remove)
+pacchetti R: cazzi tuoi
+
+#dove sono i pacchetti anaconda:
+cd anaconda3/envs/NOMEENVIRONMENT/lib/python3.5/site-packages
+oppure anaconda3/bin ???
+
+#task manager:
+ lxtask
+htop
+
+# list detailed hardware information:
+sudo lshw
+# short hardware info:
+sudo lshw -s
+# check what drivers your driver adapter is currently using:
+sudo lshw -C network
+
+# info sulla cpu e sulla memoria :
+lscpu, lsmem 
+#info gpu
+sudo lshw -C display
+nvidia-smi  #ce l'ho dopoa ver aggiornato i driver e sudato sangue
+# kill process running on gpu
+sudo kill -9 <pid> // sudo kill -9 <pid>
+
+#info sui pacchetti: installed verison:
+
+dpkg -l packagename
+
+
+#unzippare:
+gzip, tar
+tar xzvf nomefile.tar.gz     # x vuol dire compresso z vuol dire che è .gz, v è verbose, f è il nome file
+#compress file or directory
+tar -czvf archivename.tar.gz /path/to/directory-or-file    #-c create arnchive #-z compress with gzip  -v verbpse -f specify archive filename
+# verificare i permessi dentro una cartella: 
+ls -l
+# listare solo i folders
+ls -d */
+#give execution permission
+chmod +x file
+
+# show nidden files (nel file menager)
+ctrl+H
+
+# Open something (anche un pdf) credo equivalga al doppioclic. alias: 'apri'
+xdg-open something
+es: xdg-open tesi/2018-03
+es: xdg-open https://www.google.it
+# Open current 
+
+xdg-open .
+
+#connettersi a eduroam:
+account: lsignorini@fbk.eu oppure lorenzo.signorini
+securit: WPA2 Enterprise
+Authentication: PEAP
+inner authentication: MSCHAP v.2
+
+
+# per impostare variabili d'ambiente
+texteditor .bashrc 
+e poi scrivi export NOMEVARIABILE=/path titpo qlcs del genere
+
+# vedere le lines diverse fra due files:
+diff file1 file2
+vimdiff file1 file2
+
+#verificare i sensori hardware
+sensors
+psensor
+
+#soruce bashrc file (qualunque cosa voglia dire). anche se cambi il buongiorno.sh lo devi fare. LOL
+. ~/.bashrc
+
+# syntax error: "("
+se uno script .sh ti dà problemi del genere, prova a runnare come ./nomescript.sh invece che sh nomescript.sh (devi prima fare chmod +x per farlo fungere con ./) a qnt pare ./ e sh usano sintassi diverse. vabbe	
+
+#cosa strana shebang
+#!/bin/bash
+
+
+#add symlink
+
+sudo ln -s /full/path/to/your/file /usr/local/bin/name_of_new_command
+
+#remove symlink
+
+rm /usr/local/bin/name_of_new_command
+
+#update symlink
+
+ln -sfn /full/path/to/your/file /usr/local/bin/name_of_new_command  ??????
+
+# creare un comando:
+1) creare un file in bash e salvarlo come /path/mio_script.sh (.sh è opzionale)
+2) aggiungere permesso di esecuzione: chmod +x /path/mio_script.sh
+3) (forse non serve):fare ./path/mio_script.sh (da sof: 'o source a script is to run it in the context of the current shell rather than running it in a new shell')
+4) aggiungere symlink: sudo ln -s /path/mio_script.sh /usr/local/bin/nome_comando
+#OPPURE
+1) uguale
+2) uguale
+3) uguale
+4) nel file .bashrc, scrivere: alias nome_comando = '/path/mio_script.sh' 
+4.5) oppure, se vuoi runnarlo as source: alias nome_comando = '. /path/mio_script.sh'  #attento alle ''
+5) source the bashrc: . ~/.bashrc    # occhio al punto e spazio all'inizio!
+# la seconda opzione mi piace molto di più, e poi si aggiorna automaticamente!
+# fatto per un file.x senza il punto 3, e facendo come 4, non 4.5
+#OPPURE
+1,2 uguale
+3) aprire il .bashrc e aggiungere questa line (la sintassi è fondamentale!)
+	 export PATH=$PATH":/full/path/to/mio_script.sh"
+4) uscire e fare source ./.bashrc
+5) ora basta scrivere mio_script.sh e lo lanci
+
+#blocco schermo:
+start+l
+
+####### if statements in bash
+#check if file is empty / guardare se n file è vuoto
+if [ -s /tmp/myfile.txt ]
+then
+     echo "File not empty"
+else
+     echo "File empty"
+fi
+# only print files starting with a
+for i  in *; do if [[ $i == a* ]]; then echo $i; fi; done
+
+
+#count all files in folder and subfolders, senza il fodler
+
+find . -type f | wc -l
+
+#copy allfiles int he directory to anotehr directory, but sono talmente tanti file che ti dice /bin/cp: Argument list too long:
+
+find -maxdepth 1 -name 'suffisso_uguale_per_tutti_i_file*' -exec mv -t /path/to/dir {} +
+
+# contare numero di files dentro una cartella:
+# wc : word count. 
+ls | wc -l 
+
+#processi lanciati con scripti in background &
+#ps -efa (|grep nome comando)
+to get parent id of a process:
+pidof commandname
+per killarli:
+kill -9 PID (parent ID: che è un numero: tipo 1163)
+#kill processe matching a string
+pkill -f <mystring>
+
+# grep con il unumero di linea
+grep -n
+#grep con 2 lines succesive e 3 precedentui alla greppata
+grep -A2 -B3
+tipo x un fasta, x vedere la proeina che ci interressa + dopoo la prot che ci interessa, fai
+grep -n > | grep -A1 protcheciinteressa #col primo grep levi le sequenzi e tieni solo le lines con >
+#reverse grep
+grep -v
+
+#substitute substring with other substring in bash
+
+STRING='abc1234'
+ALTRASTRING=${STRING/c1/cosaconcuivogliosostituire}
+#-> ALTRASTRING viene abcosaconcuivogiosistituire234
+
+# sort lines of a file alphabeticlaly
+sort filename
+
+# awk e gawk
+#prendere un file, e cambiare le lines 4 e 2, (inizia a contare da 1) e salvare il risultato in un altro file:
+gawk '{if(NR==4) {print "10000000"} else if (NR==2) {print"ciaone"} else {print $0} }' inputfile > outputfile
+
+#stessa cosa, ma sovrascrivendo il file
+gawk -i inplace '{if(NR==4) {print "10000000"} else if (NR==2) {print"ciaone"} else {print $0} }' inputfile
+
+# CREA variabile con nome current folder cartella corrente:
+currdir=${PWD##*/}
+
+# converti jupyter notebook to pdf:
+jupyter nbconvert --to pdf notebook.ipynb
+
+
+# Rename Multiple Files : se ho asd_a.out asd_b.out e voglio richiamarli a.asd.out e b.asd.out.
+mmv 'asd_*.out' '#1.asd.out'
+per forzare la sovrascrizione:
+mmv -d
+man mmv ha gli esempi comodi
+
+# only print files starting with a
+for i  in *; do if [[ $i == a* ]]; then echo $i; fi; done
+#obnly print first column of a csv file:
+more filename | cut -d, -f1
+# add charachters at the start of aline, for all lines in a file:
+sed 's/^/ciochevuoiscrivere/' FILE
+# add charachters at the end of aline, for all lines in a file:
+sed 's/$/ciochevuoiscrivere/' FILE
+
+#iterate over file lines in bash:
+while read p; do
+  echo "$p"
+done <filename
+
+#only get unique elements. ma in realta funzionicchial, l'ho dovuto dfare due volte x farlo funzionare lol
+more filename | uniq
+# sort lines of file
+more filename | sort
+
+######## rimappa i tasti della tastiera
+
+cd /usr/share/X11/xkb/symbols/
+vim it dovrebbe avere il layout di tastiera italiano    
+e li dentro ci sono tutti i tasti e te la vedi te lol, occhio
+
+---------------------------------------------------------
+comandi server
+
+#per i path: tendenzialmente mettili assoluti, cominciando con /à
+#path assoluto: /home/lorenzo.signorini
+
+#entrare su server
+ssh lorenzo.signorini@hpc.unitn.it	
+
+aggiungi -X per passare tipo il displya, e -Y per cose di sicurezza tipo
+
+#copiare files sul server: scp (MA LO FAI SEMPRE DA LOCALE!)
+scp /home/lorenzo/tirocinio lorenzo.signorini@hpc.unitn.it:/home/lorenzo.signorini 
+#se devi copiare da server a locale, inverti il path di partenza e destinazione, fai comunque da locale
+se copi cartella: scp -r
+
+montare cose: ssh cp cose. che vorrà dire?
+
+#ssh tunneling for running jupyter :
+
+ssh -L 8000:locahost:8888 user.name@server
+jupyter-notebook
+poi vai su firefox e vai su http://localhost:8000
+
+#submit job to the queue
+
+qsub -q (NOMEDELNODO es:cpuq) jobname -o nomeoutputfilw -e nomeerrorfile
+
+#vedere stato job
+
+qstat -u lorenzo.signorini
+
+#cancellare un job:
+
+qdel Job ID(lo prendi dal comando sopra)+ter.net (tt attaccato)
+
+#vedere stato cluster
+qstat -q
+
+# montare una cartella in locale che è tipo la cartella del server:
+# da locale non puoi crear eiuna cartella nella cartella home, quindi crei una cartella /home/lorenzo.signorini ,  dentro lorenzo, e poi fai iun link simbolico, così il path che scrivi su cluster è lo stesso che scrivi in locale
+cd /home/lorenzo
+mkdir home
+cd home
+mkdir lorenzo.signorini
+cd /home 
+ln -s /home/lorenzo/home/lorenzo.signorini
+
+sshfs -o idmap=user -o follow_symlinks lorenzo.signorini@hpc.unitn.it:/home/lorenzo.signorini/ ~/home/lorenzo.signorini
+
+sshfs -o idmap=user lorenzo.signorini@cm3.cibio.unitn.it:/home/lorenzo.signorini ~/server/home
+fusermount -u /home/lorenzo/home/lorenzo.signorini
+
+#smontarla:
+
+fusermount -u /home/lorenzo/home/lorenzo.signorini
+share/scratchCM/tm/shares/CIBIO-Storage/CM/scratch/tmp_projects/epasolli_darkmatter/uniref_annotationp_projects/epasolli_darkmatter/allcontigs//scratchCM/tmp_projects/epasolli_darkmatter/allcontigs/ALLreconstructedgenomesALLreconstructedgenomes
+
+
+python3 -m venv tutorial-env
+
+
+#vedere la fine del file, in modo sempre aggiornato:
+tail -f nomefile
+------------------------------------------------
+
+comandi vim
+#aprire un file
+vim nomefile
+
+#scrivere
+i
+
+#make all upper(lower)case
+v #visual select
+u (U)
+
+#copiare una riga (in command mode)
+yy
+#copiare N righe
+yNy
+#cancellare una riga
+dd
+#pastare una riga sotto
+p
+#pastare una riga sopra
+P
+
+#copiare(cancellare) una selezione (in command mode)
+v -> entri in visual mode
+sposta il cursore con le frecce
+premi y (d)
+#pastare la riga
+premi p(P) per pastare dopo il (prima del) cursore
+
+# Scrivere una cosa su piu colonne
+ctrl+v -> entra in visual mode (un altro visual mode)
+seleziona le lines
+shift+i -> entra in in insert mode (un altro)
+-> sccrivi la tua cosa su una riga
+premi esc
+aspetta 1 secondo
+si trasmette alle altre
+#find foo in all lines and replace with bar, but ask for confirmation first (c)
+:%s/foo/bar/gc
+
+# eliminare LA SECONDA COLONNA DI UN TAB SEPARATED FILE CON DUE COLONNE
+:%s/\t.*
+# comando completo:
+:%s/\t[^\t]*//
+(se vuoi eliminare la prima colonna: :%s/\t[^\t]*/)
+
+# portare varie linee into one line:
+ctrl+v : entri visula mode,s elezioni le lines,
+premi shift +j  . 
+mammamuia è perfetto
+#oppure: 
+:  -> entra commandmode
+premi jN dove N è il numero di lines che vuoi unire.
+se vuoi unire tutte le linee di un file: (in cmd mode)
+%j
+If you dont want to replace the new lines with spaces use ! after j.
+5j20 : vai alla line 5 e joinna le next 20 lines
+
+#fai l'opposto : (prendi una lsit adi space separated parole e rendila colonna):
+1) maksure il fileformat è unix (per managgiare i newline charctars, fidati)
+:set fileformat=unix
+s/\s\+/\r/g
+
+#delete trailing whitespoaces
+:%s/\s\+$//e
+
+
+mostra anscondi line number
+:set number
+:set nonumber
+
+#vim execute command from outside vim , esegui comando vim da fuori vimd
+
+vim filename -c 'comando1|wq'    # il |wq sarebbe per dirgli: poi salva ed esci.
+
+#uscire
+press: ESC : q ENTER
+
+#uscire salvando: wq
+#uscire non salvando !q
+----------------------------------------------
+# attivare environment virtuale su python:
+
+python3 -m venv mplpd-env
+source mplpd-env/bin/activate
+disattivarlo:
+deactivate
+
+  
+
+#tmux
+#i comandi tmux sono smepre preceduti da ctrl+b, qui è sempre omesso
+
+#create new window
+c
+#rename window:
+,
+#scroll to previous window
+p
+#go to next window
+n
+#list (and poi select) windows
+w
+#split window vertically (into panes):
+%
+#split horizontally:
+"
+#switch pane:
+o
+#close a pane/cosa window: 
+ctrl+d normalmente (senza ctrlb prima)
+# scroll up nella schermta
+ctrl+b + [ + frecce
+
+## SESSIONS:
+#create sesh:
+tmux new -s <seshname>
+#detatch: (detro tmux, quindi preceduto da ctrl b) (closea tutto direttamente)
+d
+#list sessions 
+tmux list-sessions
+#reattach to session
+tmux attach(oppure solo 'a') -t <seshname>
+#kill session
+tmux kill-session -t myname
+#rename session (in tmux)
+$
+
+
+
+#################
+# git
+
+git add filename
+git commit -m "commit message"
+git push origin master   # se non si chiamano origin master, per guardare come si chiamano fai git push github master
+
+x farlo su bitbucket
+git push bitbucket --mirror
+
+#overwrite local files in repo with remote files
+git fetch --all                                 
+git reset --hard origin/master     
