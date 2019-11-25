@@ -156,3 +156,6 @@ unset __conda_setup
 # remove flow control (used to be able to save in vim pressing ctrl+S)
 # flow control is some strange thing that freezes the terminal when you press ctrl+s
 stty -ixon
+
+# config aliases
+alias ssl="more /home/lorenzo.signorini/config/sopravvivere_su_linux.txt | grep "
