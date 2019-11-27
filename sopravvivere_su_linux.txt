@@ -509,5 +509,7 @@ git fetch --all
 git reset --hard origin/master     
 
 #commit a file deletion (nn so xke nn basta fare add)
+#if you get a 'changes not staged for commit' message
+#on deleted files
 git add -u deleted_file_name
 #e poi fai il resto commit e push

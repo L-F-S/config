@@ -47,7 +47,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " set mouse to behave normally
-set mouse=a
+"" set mouse=a
 " fix backspac eon some consolles. here it behaves normally
 "" set bs=2 
 
