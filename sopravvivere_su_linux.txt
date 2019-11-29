@@ -422,6 +422,9 @@ se vuoi unire tutte le linee di un file: (in cmd mode)
 If you dont want to replace the new lines with spaces use ! after j.
 5j20 : vai alla line 5 e joinna le next 20 lines
 
+#add/write a charachter(s) n times
+number + a + cosachevuoiscrivere
+
 #fai l'opposto : (prendi una lsit adi space separated parole e rendila colonna):
 1) maksure il fileformat è unix (per managgiare i newline charctars, fidati)
 :set fileformat=unix

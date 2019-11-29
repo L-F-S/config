@@ -67,6 +67,9 @@ inoremap <silent> <C-Q> <C-O>:qa!<CR>
 vnoremap <tab> >gv
 vnoremap <S-tab> <gv
 
+" cursor will not move back 1 char when switching from insert to normal mode
+" but impazzisce vim quindi no
+" inoremap <silent> <Esc> <Esc>`^
 " flag trailing whtiespace  does not work
 " stackoverflow says to separate Bufread, and Bufnewfile with a space
 " which i have done but is not working still
@@ -109,7 +112,7 @@ syntax on
 let g:pymode_python = 'python3'
 
 " color schemes
-colorscheme zenburn 
-set background=dark "set dark background color
-hi Comment ctermfg=2 " must be after colorscheme to overwrite it 
+syntax enable
+colorscheme monokai 
+" hi Comment ctermfg=2 " must be after colorscheme to overwrite it 
 
