@@ -202,6 +202,10 @@ ln -sfn /full/path/to/your/file /usr/local/bin/name_of_new_command  ??????
 #blocco schermo:
 start+l
 
+# make a custom script take you to that directori:
+#in b.bashrc
+alias scriptname=". scriptname"
+
 ####### if statements in bash
 #check if file is empty / guardare se n file è vuoto
 if [ -s /tmp/myfile.txt ]
@@ -516,3 +520,7 @@ git reset --hard origin/master
 #on deleted files
 git add -u deleted_file_name
 #e poi fai il resto commit e push
+
+####
+# fare in modo di leggere html da server
+python -m http.server 8000 
