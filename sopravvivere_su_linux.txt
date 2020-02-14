@@ -523,4 +523,13 @@ git add -u deleted_file_name
 
 ####
 # fare in modo di leggere html da server
+ssh -D 7000 user@server
+cd location/of/file.html
 python -m http.server 8000 
+
+on local machine:
+open firefox -> preferences -> network settings -> connection settings -> 
+manual proxy configuration
+SOCKS HOST should be localhost, port n 7000
+go to http://localhost:8000/file.html
+
