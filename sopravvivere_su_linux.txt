@@ -344,7 +344,16 @@ mkdir home
 cd home
 mkdir lorenzo.signorini
 cd /home 
-ln -s /home/lorenzo/home/lorenzo.signorini
+ln -s /home/lorenzo/lorenzo.signorini /home  # create a soft symlink from lorenzo.signorini to home
+#do the same for other folders es:
+cd
+mkdir shares
+cd shares
+mkdir CIBIO-Storage
+...
+ln -s /shares/CIBIO-Storage/CM/scratch/tmp_projects/signorini_cas   /
+
+  
 
 sshfs -o idmap=user -o follow_symlinks lorenzo.signorini@hpc.unitn.it:/home/lorenzo.signorini/ ~/home/lorenzo.signorini
 
