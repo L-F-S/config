@@ -114,9 +114,13 @@ sudo kill -9 <pid> // sudo kill -9 <pid>
 dpkg -l packagename
 
 
-#unzippare:
+#unzippare decomprimere
 gzip, tar
 tar xzvf nomefile.tar.gz     # x vuol dire compresso z vuol dire che è .gz, v è verbose, f è il nome file
+    tar xzf file.tar.gz # to uncompress a gzip tar file (.tgz or .tar.gz) 
+    tar xjf file.tar.bz2 # to uncompress a bzip2 tar file (.tbz or .tar.bz2) to extract the contents. 
+    tar xf file.tar # to uncompressed tar file (.tar) 
+
 #compress file or directory
 tar -czvf archivename.tar.gz /path/to/directory-or-file    #-c create arnchive #-z compress with gzip  -v verbpse -f specify archive filename
 # verificare i permessi dentro una cartella: 
