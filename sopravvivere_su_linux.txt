@@ -29,13 +29,14 @@ alias NOMEVARIABILIE=/pathcompletoallavariabile
 lsb_release  -a
 
 # FIND PATH OF A PROGRAM
-whic program
+which program
 # REALLY FIND PATH OF A PROGRAM
 ls -ltra program  # if the program is a link, there is the path to link, 
 #then,
 ls -ltra /path/that/link/points/to #this will print another pat, that is 
 #the actual path the link points to (what is the path in the middle?
 # god knows.)
+
 # restart network
 sudo systemctl restart network-manager
 ^ prova qst qnd ti si fotte la vpn
