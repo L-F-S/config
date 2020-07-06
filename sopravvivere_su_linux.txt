@@ -122,9 +122,13 @@ sudo kill -9 <pid> // sudo kill -9 <pid>
 dpkg -l packagename
 
 
-#unzippare:
+#unzippare decomprimere
 gzip, tar
 tar xzvf nomefile.tar.gz     # x vuol dire compresso z vuol dire che è .gz, v è verbose, f è il nome file
+    tar xzf file.tar.gz # to uncompress a gzip tar file (.tgz or .tar.gz) 
+    tar xjf file.tar.bz2 # to uncompress a bzip2 tar file (.tbz or .tar.bz2) to extract the contents. 
+    tar xf file.tar # to uncompressed tar file (.tar) 
+
 #compress file or directory
 tar -czvf archivename.tar.gz /path/to/directory-or-file    #-c create arnchive #-z compress with gzip  -v verbpse -f specify archive filename
 # verificare i permessi dentro una cartella: 
@@ -209,6 +213,10 @@ ln -sfn /full/path/to/your/file /usr/local/bin/name_of_new_command  ??????
 
 #blocco schermo:
 start+l
+
+# make a custom script take you to that directori:
+#in b.bashrc
+alias scriptname=". scriptname"
 
 ####### if statements in bash
 #check if file is empty / guardare se n file è vuoto
@@ -533,3 +541,16 @@ git reset --hard origin/master
 #on deleted files
 git add -u deleted_file_name
 #e poi fai il resto commit e push
+
+####
+# fare in modo di leggere html da server
+ssh -D 7000 user@server
+cd location/of/file.html
+python -m http.server 8000 
+
+on local machine:
+open firefox -> preferences -> network settings -> connection settings -> 
+manual proxy configuration
+SOCKS HOST should be localhost, port n 7000
+go to http://localhost:8000/file.html
+
