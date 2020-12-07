@@ -254,11 +254,15 @@ pgrep processname
 watch command
 
 #see memory usage of a command
-grep Vmpeak /proc/$PID/status   #where $PID is the PID of your process
+grep VmPeak /proc/$PID/status   #where $PID is the PID of your process
 
 #see memory usage of a command being run, as it is being run (from anotehr shell):
-watch grep Vmpeak /proc/$PID/status
+watch grep VmPeak /proc/$PID/status
+# and save it to file
+watch grep VmPeak /proc/$PID/status | tee -a filename # -a is append, so every new output of watch is a new line
 
+#append command to file, while still displaying it:
+command | tee filename
 
 # grep con il unumero di linea
 grep -n
