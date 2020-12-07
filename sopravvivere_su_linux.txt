@@ -15,10 +15,6 @@ cat file1 file2 > nuovofiles
 in una cartella di tanti file fatti così:aps_123.pdb, aps_124.pdb... e vuoi chiamarli: aps_start_123.pdb, aps_start_124.pdb: fai così: occhio agli spazi:
 rename aps_ aps_start_ *.pdb
 
-#system informations
-lscpu
-lsmem
-
 #VARIABILI, CHIAMRE PROGRAMMI, COSE
 echo $PATH
 vim (subl) .bashrc
@@ -251,6 +247,18 @@ per killarli:
 kill -9 PID (parent ID: che è un numero: tipo 1163)
 #kill processe matching a string
 pkill -f <mystring>
+#opttenere PID di un processo direttamente
+pgrep processname
+
+#lanciare un comando every x second:
+watch command
+
+#see memory usage of a command
+grep Vmpeak /proc/$PID/status   #where $PID is the PID of your process
+
+#see memory usage of a command being run, as it is being run (from anotehr shell):
+watch grep Vmpeak /proc/$PID/status
+
 
 # grep con il unumero di linea
 grep -n
