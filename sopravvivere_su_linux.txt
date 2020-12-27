@@ -273,6 +273,16 @@ grep -n > | grep -A1 protcheciinteressa #col primo grep levi le sequenzi e tieni
 #reverse grep
 grep -v
 
+
+# Remove file extension from file:
+# or just remove any fnal n characters from string:
+var=string.stringtoremove
+var2=${var%.stringtoremove}
+# es: se ho dieci nomi file che finiscono in .es, e voglio rinominarli .test:
+for i in *es; do mv $i ${i%.es}.test; done
+
+
+
 #substitute substring with other substring in bash
 
 STRING='abc1234'
