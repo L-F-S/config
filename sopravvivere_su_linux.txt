@@ -108,11 +108,16 @@ sudo lshw -C network
 
 # info sulla cpu e sulla memoria :
 lscpu, lsmem 
-#info gpu
+--------------------------
+# info gpu e CUDA
+----------------------------
 sudo lshw -C display
+# see status of CUDA gpus
 nvidia-smi  #ce l'ho dopoa ver aggiornato i driver e sudato sangue
 # kill process running on gpu
 sudo kill -9 <pid> // sudo kill -9 <pid>
+# see current installed version of CUDA
+nvcc --version 
 
 #info sui pacchetti: installed verison:
 
