@@ -1,78 +1,69 @@
 # COSE BASE
-#copiare file1 in directory2 chimanadolo file2
-cp dir/file1 dir2/file2
-#copiare una directory iìe tutti i suoi contenuti:
-cp -R dir /otherpath/ultimacartellasuperiore/
-cp -r pure
-#remove a directory and all tis files
-rm -r mydir  (o rm -rf se vuoi rimuovere tt automaticamente)
-#spostare
-mv
-# concatenare files
-cat file1 file2 > nuovofiles
+
+cp dir/file1 dir2/file2 #copiare file1 in directory2 chimanadolo file2
+
+cp -R dir /otherpath/ultimacartellasuperiore/ #copiare una directory iìe tutti i suoi contenuti:
+cp -r #copiare una directory iìe tutti i suoi contenuti: pure
+
+rm -r mydir  (o rm -rf se vuoi rimuovere tt automaticamente) #remove a directory and all tis files
+
+mv #spostare
+
+cat file1 file2 > nuovofiles # concatenare files
 #absolute path: col / davanti . relative path: senz ail / davanti
-# rename parts of a filename
-in una cartella di tanti file fatti così:aps_123.pdb, aps_124.pdb... e vuoi chiamarli: aps_start_123.pdb, aps_start_124.pdb: fai così: occhio agli spazi:
-rename aps_ aps_start_ *.pdb
+
+
+rename aps_ aps_start_ *.pdb  # rename parts of a filename: in una cartella di tanti file fatti così:aps_123.pdb, aps_124.pdb... e vuoi chiamarli: aps_start_123.pdb, aps_start_124.pdb: fai così: occhio agli spazi:
+
+
+lscpu #system informations
+lsmem #system informations
 
 #VARIABILI, CHIAMRE PROGRAMMI, COSE
 echo $PATH
 vim (subl) .bashrc
-### per aggiungere variabili d'ambiente (circa (refer to stackoverflow))
-alias NOMEVARIABILIE=/pathcompletoallavariabile  
+alias NOMEVARIABILIE=/pathcompletoallavariabile   ### per aggiungere variabili d'ambiente (circa (refer to stackoverflow))
+# per impostare variabili d'ambiente
+texteditor .bashrc  # per impostare variabili d'ambiente
+e poi scrivi export NOMEVARIABILE=/path titpo qlcs del genere # per impostare variabili d'ambiente
 
-#check version
-lsb_release  -a
 
-# FIND PATH OF A PROGRAM
-which program
-# REALLY FIND PATH OF A PROGRAM
+lsb_release  -a #check version
+
+which program # FIND PATH OF A PROGRAM
+# REALLY FIND PATH OF A PROGRAM:
 ls -ltra program  # if the program is a link, there is the path to link, 
 #then,
 ls -ltra /path/that/link/points/to #this will print another pat, that is 
 #the actual path the link points to (what is the path in the middle?
 # god knows.)
 
-# restart network
-sudo systemctl restart network-manager
-^ prova qst qnd ti si fotte la vpn
-sudo service network-manager restart  
-^ prova prima questa
+sudo service network-manager restart  # restart network
+sudo systemctl restart network-manager # restart network: if vpn da problemi
 
-# for loop for cycle
-for i in {1..10};do
-asdasdads
-done
+# for loop for cycle:
+for i in {1..10};do # for loop for cycle:
+asdasdads ## for loop for cycle:
+done # for loop for cycle:
 
-#check number of lines in file
-wc -l nomefile
+wc -l nomefile #check number of lines in file
 
-#come trovare indirizzo mec su ubuntu
-ifconfig | grep HWaddr
+ifconfig | grep HWaddr #come trovare indirizzo mec su ubuntu
 
-#open terminal in current folder: (fn) f4
+(fn) f4 #open terminal in current folder:
 
-# give autorizzazioni complete a tutti alla cartella (forse non dovresti farlo):
-sudo chmod -R 777 /path
+sudo chmod -R 777 /path # give autorizzazioni complete a tutti alla cartella (forse non dovresti farlo):
 
-#da python2 a python3: in command line: per vedere le modifiche
-2to3 example.py
-#per modificare il file
-2to3 -w example.py
+2to3 example.py #da python2 a python3: in command line: per vedere le modifiche
+2to3 -w example.py #per modificare il file
 
+##installing packages:
+sudo apt-get update   #installing packages: #fallo sempre prima di installare any application or program
+sudo apt-get install <packagename>   #installing packages: (if you know whatyou are doing, add -y, it will automatically say yes)
 
+apt-cache showpkg gcc  #capire quali versioni è possiblile installare di un programma  (forse, a volte)
 
-#installing packages
-
-sudo apt-get update   #fallo sempre prima di installare any application or program
-sudo apt-get install <packagename>   (if you know whatyou are doing, add -y, it will automatically say yes)
-come trovo i programmi dopo che li ho installati così?
-
-#capire quali versioni è possiblile installare di un programma
-apt-cache showpkg gcc   (forse, a volte)
-
-#check if something is installed:
-ldconfig -p | grep programma
+ldconfig -p | grep programma #check if something is installed:
 
 
 se no, per altre cose, tipo la patch di R, 
@@ -84,7 +75,7 @@ quando ti incasini, fai make clean e ricomincia
 
 se no, se sono .deb : cliccacicsopra
 
-#managing packages
+#managing packages:
 
 sudo apt-get upgrade  (che fa?)
 sudo apt-get remove <package>
@@ -106,61 +97,36 @@ sudo lshw -s
 # check what drivers your driver adapter is currently using:
 sudo lshw -C network
 
-# info sulla cpu e sulla memoria :
-lscpu, lsmem 
---------------------------
-# info gpu e CUDA
-----------------------------
-sudo lshw -C display
-# see status of CUDA gpus
+# info sulla cpu gpu e sulla memoria :
+lscpu, lsmem # info sulla cpu e sulla memoria
+sudo lshw -C display #info gpu
 nvidia-smi  #ce l'ho dopoa ver aggiornato i driver e sudato sangue
-# kill process running on gpu
-sudo kill -9 <pid> // sudo kill -9 <pid>
-# see current installed version of CUDA
-nvcc --version 
+sudo kill -9 <pid> // sudo kill -9 <pid> # kill process running on gpu
 
-#info sui pacchetti: installed verison:
-
-dpkg -l packagename
+dpkg -l packagename #info sui pacchetti: installed verison:
 
 
-#unzippare decomprimere
-gzip, tar
-tar xzvf nomefile.tar.gz     # x vuol dire compresso z vuol dire che è .gz, v è verbose, f è il nome file
-    tar xzf file.tar.gz # to uncompress a gzip tar file (.tgz or .tar.gz) 
-    tar xjf file.tar.bz2 # to uncompress a bzip2 tar file (.tbz or .tar.bz2) to extract the contents. 
-    tar xf file.tar # to uncompressed tar file (.tar) 
+#unzippare decomprimere:
+gzip, tar #unzippare decomprimere
+tar xzvf nomefile.tar.gz    #unzippare decomprimere # x vuol dire compresso z vuol dire che è .gz, v è verbose, f è il nome file
+    tar xzf file.tar.gz #unzippare decomprimere # to uncompress a gzip tar file (.tgz or .tar.gz) 
+    tar xjf file.tar.bz2 #unzippare decomprimere # to uncompress a bzip2 tar file (.tbz or .tar.bz2) to extract the contents. 
+    tar xf file.tar #unzippare decomprimere # to uncompressed tar file (.tar) 
 
 #compress file or directory
-tar -czvf archivename.tar.gz /path/to/directory-or-file    #-c create arnchive #-z compress with gzip  -v verbpse -f specify archive filename
-# verificare i permessi dentro una cartella: 
-ls -l
-# listare solo i folders
-ls -d */
-#give execution permission
-chmod +x file
+tar -czvf archivename.tar.gz /path/to/directory-or-file    #-c create arnchive #-z compress with gzip  -v verbpse -f specify archive filename #compress file or directory
 
-# show nidden files (nel file menager)
-ctrl+H
+ls -l # verificare i permessi dentro una cartella: 
+ls -d */ # listare solo i folders
+chmod +x file #give execution permission
 
-# Open something (anche un pdf) credo equivalga al doppioclic. alias: 'apri'
-xdg-open something
-es: xdg-open tesi/2018-03
-es: xdg-open https://www.google.it
-# Open current 
+ctrl+H # show hidden files (nel file menager)
 
-xdg-open .
+xdg-open something # Open something (anche un pdf) credo equivalga al doppioclic. alias: 'apri'
+es: xdg-open tesi/2018-03 # Open something (anche un pdf) credo equivalga al doppioclic. alias: 'apri'
+es: xdg-open https://www.google.it # Open something (anche un pdf) credo equivalga al doppioclic. alias: 'apri'
+xdg-open . # Open current 
 
-#connettersi a eduroam:
-account: lsignorini@fbk.eu oppure lorenzo.signorini
-securit: WPA2 Enterprise
-Authentication: PEAP
-inner authentication: MSCHAP v.2
-
-
-# per impostare variabili d'ambiente
-texteditor .bashrc 
-e poi scrivi export NOMEVARIABILE=/path titpo qlcs del genere
 
 # vedere le lines diverse fra due files:
 diff file1 file2
@@ -213,8 +179,7 @@ ln -sfn /full/path/to/your/file /usr/local/bin/name_of_new_command  ??????
 4) uscire e fare source ./.bashrc
 5) ora basta scrivere mio_script.sh e lo lanci
 
-#blocco schermo:
-start+l
+start+l #blocco schermo:
 
 # make a custom script take you to that directori:
 #in b.bashrc
@@ -252,22 +217,6 @@ per killarli:
 kill -9 PID (parent ID: che è un numero: tipo 1163)
 #kill processe matching a string
 pkill -f <mystring>
-#opttenere PID di un processo direttamente
-pgrep processname
-
-#lanciare un comando every x second:
-watch command
-
-#see memory usage of a command
-grep VmPeak /proc/$PID/status   #where $PID is the PID of your process
-
-#see memory usage of a command being run, as it is being run (from anotehr shell):
-watch grep VmPeak /proc/$PID/status
-# and save it to file
-watch "grep VmPeak /proc/$PID/status | tee -a filename"  # -a is append, so every new output of watch is a new line OCCHIO ALLE VIRGOLETTE
-
-#append command to file, while still displaying it:
-command | tee filename
 
 # grep con il unumero di linea
 grep -n
@@ -277,16 +226,6 @@ tipo x un fasta, x vedere la proeina che ci interressa + dopoo la prot che ci in
 grep -n > | grep -A1 protcheciinteressa #col primo grep levi le sequenzi e tieni solo le lines con >
 #reverse grep
 grep -v
-
-
-# Remove file extension from file:
-# or just remove any fnal n characters from string:
-var=string.stringtoremove
-var2=${var%.stringtoremove}
-# es: se ho dieci nomi file che finiscono in .es, e voglio rinominarli .test:
-for i in *es; do mv $i ${i%.es}.test; done
-
-
 
 #substitute substring with other substring in bash
 
